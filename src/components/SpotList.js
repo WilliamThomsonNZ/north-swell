@@ -14,7 +14,7 @@ const SpotList = ({ savedSpots, setSavedSpots, handleClick }) => {
                 id={spot.id}
                 img="#"
                 name={spot.name}
-                size="5M"
+                size="10M"
                 handleClick={handleClick}
                 savedSpots={savedSpots}
                 setSavedSpots={setSavedSpots}
