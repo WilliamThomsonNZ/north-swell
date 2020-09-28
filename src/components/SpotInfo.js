@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Map from "../imgs/map.png";
+import spinner from "../imgs/spinner.svg";
 
 const SpotInfo = ({ selectedSpotObj }) => {
   const params = "swellPeriod,swellHeight,windDirection,windSpeed";
@@ -7,9 +7,11 @@ const SpotInfo = ({ selectedSpotObj }) => {
   const [swellHeight, setSwellHeight] = useState("");
   const [windDirection, setWindDirection] = useState("");
   const [windSpeed, setWindSpeed] = useState("");
+  const [dataLoading, setDataLoading] = useState(true);
 
-  //useEffect(() => {
+  // useEffect(() => {
   //   const fetchWeather = async () => {
+  //     setDataLoading(true);
   //     const res = await fetch(
   //       `https://api.stormglass.io/v2/weather/point?lat=${selectedSpotObj.lat}&lng=${selectedSpotObj.long}&params=${params}`,
   //       {
@@ -20,19 +22,24 @@ const SpotInfo = ({ selectedSpotObj }) => {
   //       }
   //     );
   //     const data = await res.json();
-  //     console.log(data);
   //     setSwellPeriod(data.hours[12].swellPeriod.icon);
   //     setSwellHeight(data.hours[12].swellHeight.icon);
   //     setWindDirection(data.hours[12].windDirection.icon);
   //     setWindSpeed(data.hours[12].windSpeed.icon);
+  //     setDataLoading(false);
   //   };
   //   fetchWeather();
   // }, [selectedSpotObj]);
 
-  return (
+  return dataLoading ? (
+    <div className="flex content-center justify-center h-full">
+      <img src={spinner} alt="loading Spinner" />
+    </div>
+  ) : (
     <div className="overflow-hidden ">
-      <div className="grid grid-rows-2 grid-cols-2  customContainer ml-20 mt-10 overflow-hidden gap-12">
+      <div className="grid grid-rows-2 grid-cols-2  customContainer ml-20 mt-10 overflow-hidden gap-12 lg:ml-0">
         <div className="row-span-1 ">
+          <h2 className="inline">Spot Rating</h2>
           <span className="text-teal-700  text-3xl block mb-5">
             <i className="fas fa-star dropShadow"></i>
             <i className="fas fa-star dropShadow"></i>
@@ -70,6 +77,7 @@ const SpotInfo = ({ selectedSpotObj }) => {
           href={`https://magicseaweed.com/Mount-Maunganui-Surf-Report/93/`}
           className="px-10 py-4 rounded bg-teal-700 text-teal-100 font-semibold shadow-lg hover:bg-teal-600 h-16 row-span-1 justify-self-end overflow-hidden"
           target="_blank"
+          rel="noopener noreferrer"
         >
           View Full Forecast
         </a>

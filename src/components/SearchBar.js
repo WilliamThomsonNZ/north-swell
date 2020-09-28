@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-function SearchBar({ padding, handleClick, spotsData }) {
+function SearchBar({ padding, handleClick, spotsData, handleStyle }) {
   //States of component
   const [input, setInput] = useState("");
   const [spotNames, setSpotNames] = useState([]);
@@ -10,6 +10,11 @@ function SearchBar({ padding, handleClick, spotsData }) {
     setInput(e.target.value);
   };
 
+  const handleBlur = () => {
+    setTimeout(() => {
+      setSearchResults([]);
+    }, 100);
+  };
   //Getting spot list and assigning it in state
   useEffect(() => {
     setSpotNames(spotsData.map((spot) => spot.name));
@@ -24,7 +29,7 @@ function SearchBar({ padding, handleClick, spotsData }) {
   }, [input]);
 
   return (
-    <div className={padding}>
+    <div className={padding} onBlur={handleBlur}>
       <input
         type="text"
         placeholder="Enter North Island Surf Spot"

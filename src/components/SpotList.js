@@ -5,9 +5,11 @@ const SpotList = ({ savedSpots, setSavedSpots, handleClick }) => {
   return (
     <div className="h-64">
       <h2 className="half-underline text-xl font-bold ">Your Spots</h2>
+
       <ul className="overflow-x-auto listHeight mt-5">
         {savedSpots ? (
           savedSpots.map((spot) => {
+            console.log(savedSpots);
             return (
               <SavedSpot
                 key={spot.id}
