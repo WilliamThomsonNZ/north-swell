@@ -37,7 +37,7 @@ const SpotInfo = ({ selectedSpotObj }) => {
     </div>
   ) : (
     <div className="overflow-hidden ">
-      <div className="grid grid-rows-2 grid-cols-2  customContainer ml-20 mt-10 overflow-hidden gap-12 lg:ml-0">
+      <div className="grid grid-rows-2 grid-cols-2  customContainer ml-20 mt-10 overflow-hidden gap-12 lg:ml-0 sm:block">
         <div className="row-span-1 ">
           <h2 className="inline">Spot Rating</h2>
           <span className="text-teal-700  text-3xl block mb-5">
@@ -58,7 +58,7 @@ const SpotInfo = ({ selectedSpotObj }) => {
           </span>
         </div>
         <div className="row-span-1 relative ">
-          <span className="absolute right-0 text-4xl font-bold">
+          <span className="absolute right-0 text-4xl font-bold sm:inline-block sm:static sm:mt-5">
             {windSpeed}
             <span className="text-lg mr-5 font-semibold"> KM/H</span>
             <i
@@ -67,7 +67,7 @@ const SpotInfo = ({ selectedSpotObj }) => {
             ></i>
           </span>
         </div>
-        <div className="row-span-1 overflow-hidden">
+        <div className="row-span-1 overflow-hidden sm:mt-5">
           <p className="w-full text-lg">
             Piha is New Zealand's most famous surf beach. Situated on the west
             coast of the North Island, 40 kms from the city of Auckland
@@ -75,7 +75,7 @@ const SpotInfo = ({ selectedSpotObj }) => {
         </div>
         <a
           href={`https://magicseaweed.com/Mount-Maunganui-Surf-Report/93/`}
-          className="px-10 py-4 rounded bg-teal-700 text-teal-100 font-semibold shadow-lg hover:bg-teal-600 h-16 row-span-1 justify-self-end overflow-hidden"
+          className="px-10 py-4 rounded bg-teal-700 text-lg text-teal-100 font-semibold shadow-lg hover:bg-teal-600 h-16 row-span-1 justify-self-end overflow-hidden sm:mt-5  inline-block"
           target="_blank"
           rel="noopener noreferrer"
         >

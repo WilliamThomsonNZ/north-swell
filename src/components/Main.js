@@ -40,13 +40,26 @@ const Main = () => {
   const handleAddClick = (e) => {
     const storedSpots = JSON.parse(localStorage.getItem("savedSpots"));
 
-    let savedSpotsArr = [selectedSpotObj];
+    //Filter through and make sure that the same item is not being added twice
+    let repeatCheck = [];
     if (storedSpots) {
-      savedSpotsArr.push(...storedSpots);
+      repeatCheck = storedSpots.filter((spot) =>
+        spot.id === selectedSpotObj.id ? spot : null
+      );
+      console.log(repeatCheck);
     }
-    // setSavedSpots(savedSpotsArr);
-    localStorage.setItem("savedSpots", JSON.stringify(savedSpotsArr));
-    setSavedSpots(savedSpotsArr);
+    if (repeatCheck.length > 0) {
+      alert("you can not save the same spot to your list");
+      repeatCheck = [];
+    } else {
+      let savedSpotsArr = [selectedSpotObj];
+      if (storedSpots) {
+        savedSpotsArr.push(...storedSpots);
+      }
+      // setSavedSpots(savedSpotsArr);
+      localStorage.setItem("savedSpots", JSON.stringify(savedSpotsArr));
+      setSavedSpots(savedSpotsArr);
+    }
   };
 
   //fetching the basic spot json

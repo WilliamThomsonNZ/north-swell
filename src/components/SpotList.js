@@ -9,7 +9,6 @@ const SpotList = ({ savedSpots, setSavedSpots, handleClick }) => {
       <ul className="overflow-x-auto listHeight mt-5">
         {savedSpots ? (
           savedSpots.map((spot) => {
-            console.log(savedSpots);
             return (
               <SavedSpot
                 key={spot.id}

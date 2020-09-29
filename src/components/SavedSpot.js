@@ -14,7 +14,11 @@ const SavedSpot = ({
       <div className="bg-white w-full  rounded-md shadow-xl mt-12 flex">
         <div className="p-4 w-full">
           <div className="flex justify-between text-2xl font-bold">
-            <h3 onClick={handleClick} id={name}>
+            <h3
+              className="cursor-pointer text-3xl pr-6 py-3 hover:underline"
+              onClick={handleClick}
+              id={name}
+            >
               {name}
             </h3>
             <button

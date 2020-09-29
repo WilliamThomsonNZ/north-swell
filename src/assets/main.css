@@ -581,12 +581,6 @@ video {
   width: 100%;
 }
 
-@media (min-width: 640px) {
-  .container {
-    max-width: 640px;
-  }
-}
-
 @media (min-width: 768px) {
   .container {
     max-width: 768px;
@@ -11677,10 +11671,6 @@ video {
   max-width: 100%;
 }
 
-.max-w-screen-sm {
-  max-width: 640px;
-}
-
 .max-w-screen-md {
   max-width: 768px;
 }
@@ -13686,6 +13676,13 @@ video {
   left: 0;
 }
 
+.inset-5 {
+  top: 5%;
+  right: 5%;
+  bottom: 5%;
+  left: 5%;
+}
+
 .inset-auto {
   top: auto;
   right: auto;
@@ -13701,6 +13698,16 @@ video {
 .inset-x-0 {
   right: 0;
   left: 0;
+}
+
+.inset-y-5 {
+  top: 5%;
+  bottom: 5%;
+}
+
+.inset-x-5 {
+  right: 5%;
+  left: 5%;
 }
 
 .inset-y-auto {
@@ -13727,6 +13734,22 @@ video {
 
 .left-0 {
   left: 0;
+}
+
+.top-5 {
+  top: 5%;
+}
+
+.right-5 {
+  right: 5%;
+}
+
+.bottom-5 {
+  bottom: 5%;
+}
+
+.left-5 {
+  left: 5%;
 }
 
 .top-auto {
@@ -18584,15 +18607,9 @@ video {
   animation: bounce 1s infinite;
 }
 
-@media (min-width: 640px) {
+@media (max-width: 400px) {
   .sm\:container {
     width: 100%;
-  }
-
-  @media (min-width: 640px) {
-    .sm\:container {
-      max-width: 640px;
-    }
   }
 
   @media (min-width: 768px) {
@@ -29685,10 +29702,6 @@ video {
     max-width: 100%;
   }
 
-  .sm\:max-w-screen-sm {
-    max-width: 640px;
-  }
-
   .sm\:max-w-screen-md {
     max-width: 768px;
   }
@@ -31694,6 +31707,13 @@ video {
     left: 0;
   }
 
+  .sm\:inset-5 {
+    top: 5%;
+    right: 5%;
+    bottom: 5%;
+    left: 5%;
+  }
+
   .sm\:inset-auto {
     top: auto;
     right: auto;
@@ -31709,6 +31729,16 @@ video {
   .sm\:inset-x-0 {
     right: 0;
     left: 0;
+  }
+
+  .sm\:inset-y-5 {
+    top: 5%;
+    bottom: 5%;
+  }
+
+  .sm\:inset-x-5 {
+    right: 5%;
+    left: 5%;
   }
 
   .sm\:inset-y-auto {
@@ -31735,6 +31765,22 @@ video {
 
   .sm\:left-0 {
     left: 0;
+  }
+
+  .sm\:top-5 {
+    top: 5%;
+  }
+
+  .sm\:right-5 {
+    right: 5%;
+  }
+
+  .sm\:bottom-5 {
+    bottom: 5%;
+  }
+
+  .sm\:left-5 {
+    left: 5%;
   }
 
   .sm\:top-auto {
@@ -36565,12 +36611,6 @@ video {
 @media (min-width: 768px) {
   .md\:container {
     width: 100%;
-  }
-
-  @media (min-width: 640px) {
-    .md\:container {
-      max-width: 640px;
-    }
   }
 
   @media (min-width: 768px) {
@@ -47663,10 +47703,6 @@ video {
     max-width: 100%;
   }
 
-  .md\:max-w-screen-sm {
-    max-width: 640px;
-  }
-
   .md\:max-w-screen-md {
     max-width: 768px;
   }
@@ -49672,6 +49708,13 @@ video {
     left: 0;
   }
 
+  .md\:inset-5 {
+    top: 5%;
+    right: 5%;
+    bottom: 5%;
+    left: 5%;
+  }
+
   .md\:inset-auto {
     top: auto;
     right: auto;
@@ -49687,6 +49730,16 @@ video {
   .md\:inset-x-0 {
     right: 0;
     left: 0;
+  }
+
+  .md\:inset-y-5 {
+    top: 5%;
+    bottom: 5%;
+  }
+
+  .md\:inset-x-5 {
+    right: 5%;
+    left: 5%;
   }
 
   .md\:inset-y-auto {
@@ -49713,6 +49766,22 @@ video {
 
   .md\:left-0 {
     left: 0;
+  }
+
+  .md\:top-5 {
+    top: 5%;
+  }
+
+  .md\:right-5 {
+    right: 5%;
+  }
+
+  .md\:bottom-5 {
+    bottom: 5%;
+  }
+
+  .md\:left-5 {
+    left: 5%;
   }
 
   .md\:top-auto {
@@ -54543,12 +54612,6 @@ video {
 @media (max-width: 1280px) {
   .lg\:container {
     width: 100%;
-  }
-
-  @media (min-width: 640px) {
-    .lg\:container {
-      max-width: 640px;
-    }
   }
 
   @media (min-width: 768px) {
@@ -65641,10 +65704,6 @@ video {
     max-width: 100%;
   }
 
-  .lg\:max-w-screen-sm {
-    max-width: 640px;
-  }
-
   .lg\:max-w-screen-md {
     max-width: 768px;
   }
@@ -67650,6 +67709,13 @@ video {
     left: 0;
   }
 
+  .lg\:inset-5 {
+    top: 5%;
+    right: 5%;
+    bottom: 5%;
+    left: 5%;
+  }
+
   .lg\:inset-auto {
     top: auto;
     right: auto;
@@ -67665,6 +67731,16 @@ video {
   .lg\:inset-x-0 {
     right: 0;
     left: 0;
+  }
+
+  .lg\:inset-y-5 {
+    top: 5%;
+    bottom: 5%;
+  }
+
+  .lg\:inset-x-5 {
+    right: 5%;
+    left: 5%;
   }
 
   .lg\:inset-y-auto {
@@ -67691,6 +67767,22 @@ video {
 
   .lg\:left-0 {
     left: 0;
+  }
+
+  .lg\:top-5 {
+    top: 5%;
+  }
+
+  .lg\:right-5 {
+    right: 5%;
+  }
+
+  .lg\:bottom-5 {
+    bottom: 5%;
+  }
+
+  .lg\:left-5 {
+    left: 5%;
   }
 
   .lg\:top-auto {

@@ -10,9 +10,8 @@ module.exports = {
   separator: ":",
   theme: {
     screens: {
-      sm: "640px",
+      sm: { max: "400px" },
       md: "768px",
-
       lg: { max: "1280px" },
     },
     colors: {
@@ -312,6 +311,7 @@ module.exports = {
     }),
     inset: {
       0: "0",
+      5: "5%",
       auto: "auto",
     },
     letterSpacing: {

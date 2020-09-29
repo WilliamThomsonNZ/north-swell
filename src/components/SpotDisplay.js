@@ -1,5 +1,5 @@
 import React from "react";
-import PihaImg from "../imgs/mount3.jpg";
+import PihaImg from "../imgs/piha.jpg";
 
 const SpotDisplay = ({ selectedSpotObj, handleAddClick }) => {
   return (
@@ -7,18 +7,23 @@ const SpotDisplay = ({ selectedSpotObj, handleAddClick }) => {
       style={{
         backgroundImage: `url(${PihaImg})`,
       }}
-      className="h-full bg-bottom  relative"
+      className="h-full bg-center bg-no-repeat bg-cover  relative"
     >
       <div className="w-full h-full overlay">
-        <i
-          className="fas fa-plus absolute right-0 mr-20 mt-10 text-5xl text-teal-700"
-          onClick={handleAddClick}
-        ></i>
-        <div className="ml-20 absolute bottom-0 mb-20 text-white">
-          <span className="text-2xl">{selectedSpotObj.region}</span>
-          <h1 className="text-6xl font-bold text-shadow tracking-wider">
-            {selectedSpotObj.name}
-          </h1>
+        <div className="customContainer relative">
+          <i
+            className="fas fa-plus absolute right-0 text-lg mt-10 text-white lg:right-5"
+            onClick={handleAddClick}
+          >
+            Add to your spots
+          </i>
+
+          <div className="ml-20 absolute bottom-0 mb-20 text-white lg:ml-0">
+            <span className="text-2xl">{selectedSpotObj.region}</span>
+            <h1 className="text-6xl font-bold text-shadow tracking-wider">
+              {selectedSpotObj.name}
+            </h1>
+          </div>
         </div>
       </div>
     </div>
