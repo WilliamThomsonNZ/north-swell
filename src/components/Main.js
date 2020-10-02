@@ -66,7 +66,7 @@ const Main = () => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(
-        "https://api.jsonbin.io/b/5f6171867243cd7e823d0fdf"
+        "https://api.jsonbin.io/b/5f77a0767243cd7e82492496"
       );
       const data = await response.json();
       setSpotsData(data);
