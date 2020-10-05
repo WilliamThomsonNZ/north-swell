@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import PihaImg from "../imgs/piha.jpg";
+import SpotContext from "./SpotContext";
 
-const SpotDisplay = ({ selectedSpotObj, handleAddClick }) => {
+const SpotDisplay = ({ handleAddClick }) => {
+  const { selectedSpotObj } = useContext(SpotContext);
   return (
     <div
       style={{

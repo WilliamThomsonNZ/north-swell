@@ -6,6 +6,7 @@ import SpotList from "./SpotList";
 import SpotDisplay from "./SpotDisplay";
 import SpotInfo from "./SpotInfo";
 import Menu from "./Menu";
+import SpotContext from "./SpotContext";
 
 const Main = () => {
   //the initail state of the application
@@ -66,7 +67,7 @@ const Main = () => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(
-        "https://api.jsonbin.io/b/5f77a0767243cd7e82492496"
+        "https://api.jsonbin.io/b/5f7a83db302a837e95748579"
       );
       const data = await response.json();
       setSpotsData(data);
@@ -77,38 +78,37 @@ const Main = () => {
   }, []);
 
   return (
-    <div className="bg-gray-100  grid-cols-5 grid-rows-5 h-screen grid lg:grid-rows-6">
-      <div
-        className={`customContainer mx-auto col-span-2 row-span-5 app-spotList  lg:fixed lg:top-0 lg:left-0 lg:z-30 lg:col-span-6 lg:row-span-6 lg:bg-gray-100 lg:${
-          hiddenStyle ? "hidden" : "block"
-        }`}
-      >
-        <Logo />
-        <SearchBar
-          handleClick={handleClick}
-          spotsData={spotsData}
-          handleStyle={handleStyle}
-        />
-        <SpotList
-          savedSpots={savedSpots}
-          setSavedSpots={setSavedSpots}
-          handleClick={handleClick}
-        />
+    <SpotContext.Provider value={{ selectedSpotObj, setSelectedSpotObj }}>
+      <div className="bg-gray-100  grid-cols-5 grid-rows-5 h-screen grid lg:grid-rows-6">
+        <div
+          className={`customContainer mx-auto col-span-2 row-span-5 app-spotList  lg:fixed lg:top-0 lg:left-0 lg:z-30 lg:col-span-6 lg:row-span-6 lg:bg-gray-100 lg:${
+            hiddenStyle ? "hidden" : "block"
+          }`}
+        >
+          <Logo />
+          <SearchBar
+            handleClick={handleClick}
+            spotsData={spotsData}
+            handleStyle={handleStyle}
+          />
+          <SpotList
+            savedSpots={savedSpots}
+            setSavedSpots={setSavedSpots}
+            handleClick={handleClick}
+          />
+        </div>
+        <div className=" hidden relative lg:row-span-1 lg:col-span-5 lg:block">
+          <Logo />
+          <Menu handleStyle={handleStyle} />
+        </div>
+        <div className="row-span-3 col-span-3 lg:col-span-5 ">
+          <SpotDisplay handleAddClick={handleAddClick} />
+        </div>
+        <div className="bg-white row-span-2 col-span-3 lg:col-span-5 ">
+          <SpotInfo />
+        </div>
       </div>
-      <div className=" hidden relative lg:row-span-1 lg:col-span-5 lg:block">
-        <Logo />
-        <Menu handleStyle={handleStyle} />
-      </div>
-      <div className="row-span-3 col-span-3 lg:col-span-5 ">
-        <SpotDisplay
-          selectedSpotObj={selectedSpotObj}
-          handleAddClick={handleAddClick}
-        />
-      </div>
-      <div className="bg-white row-span-2 col-span-3 lg:col-span-5 ">
-        <SpotInfo selectedSpotObj={selectedSpotObj} />
-      </div>
-    </div>
+    </SpotContext.Provider>
   );
 };
 

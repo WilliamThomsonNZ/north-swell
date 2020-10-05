@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import spinner from "../imgs/spinner.svg";
-
-const SpotInfo = ({ selectedSpotObj }) => {
+import SpotContext from "./SpotContext";
+const SpotInfo = () => {
   const params = "swellPeriod,swellHeight,windDirection,windSpeed";
   const [swellPeriod, setSwellPeriod] = useState("");
   const [swellHeight, setSwellHeight] = useState("");
@@ -9,27 +9,28 @@ const SpotInfo = ({ selectedSpotObj }) => {
   const [windSpeed, setWindSpeed] = useState("");
   const [dataLoading, setDataLoading] = useState(true);
 
-  // useEffect(() => {
-  //   const fetchWeather = async () => {
-  //     setDataLoading(true);
-  //     const res = await fetch(
-  //       `https://api.stormglass.io/v2/weather/point?lat=${selectedSpotObj.lat}&lng=${selectedSpotObj.long}&params=${params}`,
-  //       {
-  //         headers: {
-  //           Authorization:
-  //             "3a957de6-f337-11ea-8b4e-0242ac130002-3a957ea4-f337-11ea-8b4e-0242ac130002",
-  //         },
-  //       }
-  //     );
-  //     const data = await res.json();
-  //     setSwellPeriod(data.hours[12].swellPeriod.icon);
-  //     setSwellHeight(data.hours[12].swellHeight.icon);
-  //     setWindDirection(data.hours[12].windDirection.icon);
-  //     setWindSpeed(data.hours[12].windSpeed.icon);
-  //     setDataLoading(false);
-  //   };
-  //   fetchWeather();
-  // }, [selectedSpotObj]);
+  const { selectedSpotObj } = useContext(SpotContext);
+  useEffect(() => {
+    const fetchWeather = async () => {
+      setDataLoading(true);
+      const res = await fetch(
+        `https://api.stormglass.io/v2/weather/point?lat=${selectedSpotObj.lat}&lng=${selectedSpotObj.long}&params=${params}`,
+        {
+          headers: {
+            Authorization:
+              "3a957de6-f337-11ea-8b4e-0242ac130002-3a957ea4-f337-11ea-8b4e-0242ac130002",
+          },
+        }
+      );
+      const data = await res.json();
+      setSwellPeriod(data.hours[12].swellPeriod.icon);
+      setSwellHeight(data.hours[12].swellHeight.icon);
+      setWindDirection(data.hours[12].windDirection.icon);
+      setWindSpeed(data.hours[12].windSpeed.icon);
+      setDataLoading(false);
+    };
+    fetchWeather();
+  }, [selectedSpotObj]);
 
   return dataLoading ? (
     <div className="flex content-center justify-center h-full">
@@ -68,10 +69,7 @@ const SpotInfo = ({ selectedSpotObj }) => {
           </span>
         </div>
         <div className="row-span-1 overflow-hidden sm:mt-5">
-          <p className="w-full text-lg">
-            Piha is New Zealand's most famous surf beach. Situated on the west
-            coast of the North Island, 40 kms from the city of Auckland
-          </p>
+          <p className="w-full text-lg">{selectedSpotObj.description}</p>
         </div>
         <a
           href={`https://magicseaweed.com/Mount-Maunganui-Surf-Report/93/`}
