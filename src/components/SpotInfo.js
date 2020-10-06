@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import spinner from "../imgs/spinner.svg";
 import SpotContext from "./SpotContext";
+import { secret } from "./secrets";
 const SpotInfo = () => {
   const params = "swellPeriod,swellHeight,windDirection,windSpeed";
   const [swellPeriod, setSwellPeriod] = useState("");
@@ -17,8 +18,7 @@ const SpotInfo = () => {
         `https://api.stormglass.io/v2/weather/point?lat=${selectedSpotObj.lat}&lng=${selectedSpotObj.long}&params=${params}`,
         {
           headers: {
-            Authorization:
-              "3a957de6-f337-11ea-8b4e-0242ac130002-3a957ea4-f337-11ea-8b4e-0242ac130002",
+            Authorization: secret,
           },
         }
       );
@@ -31,6 +31,10 @@ const SpotInfo = () => {
     };
     fetchWeather();
   }, [selectedSpotObj]);
+  let stars = [];
+  for (let i = 0; i < selectedSpotObj.rating; i++) {
+    stars.push(<i className="fa fa-star" key={i}></i>);
+  }
 
   return dataLoading ? (
     <div className="flex content-center justify-center h-full">
@@ -40,14 +44,8 @@ const SpotInfo = () => {
     <div className="overflow-hidden ">
       <div className="grid grid-rows-2 grid-cols-2  customContainer ml-20 mt-10 overflow-hidden gap-12 lg:ml-0 sm:block">
         <div className="row-span-1 ">
-          <h2 className="inline">Spot Rating</h2>
-          <span className="text-teal-700  text-3xl block mb-5">
-            <i className="fas fa-star dropShadow"></i>
-            <i className="fas fa-star dropShadow"></i>
-            <i className="fas fa-star dropShadow"></i>
-            <i className="fas fa-star dropShadow"></i>
-            <i className="far fa-star dropShadow"></i>
-          </span>
+          <h2 className="inline font-bold text-gray-500 ">Spot Rating</h2>
+          <span className="text-teal-700  text-3xl block mb-5">{stars}</span>
           <span className=" font-bold text-gray-500 inline-block">Swell</span>
           <span className=" font-bold text-gray-500  ml-16">Period</span>
           <br></br>
@@ -72,7 +70,7 @@ const SpotInfo = () => {
           <p className="w-full text-lg">{selectedSpotObj.description}</p>
         </div>
         <a
-          href={`https://magicseaweed.com/Mount-Maunganui-Surf-Report/93/`}
+          href={selectedSpotObj.link}
           className="px-10 py-4 rounded bg-teal-700 text-lg text-teal-100 font-semibold shadow-lg hover:bg-teal-600 h-16 row-span-1 justify-self-end overflow-hidden sm:mt-5  inline-block"
           target="_blank"
           rel="noopener noreferrer"

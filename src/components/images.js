@@ -1,0 +1,12 @@
+export const pihaImg = require("../imgs/piha-min.jpg");
+export const ahuImg = require("../imgs/ahuahu-min.jpg");
+export const hotWaterImg = require("../imgs/hotWater-min.jpg");
+export const kareImg = require("../imgs/karekare-min.jpg");
+export const lyallImg = require("../imgs/lyall-min.jpg");
+export const mangaImg = require("../imgs/manga-min.jpg");
+export const mountImg = require("../imgs/mountMaunguni-min.jpg");
+export const manuImg = require("../imgs/manuBay-min.jpg");
+export const teAImg = require("../imgs/teAwanga-min.jpg");
+export const whangaImg = require("../imgs/whanga-min.jpg");
+export const wainuiImg = require("../imgs/wianui-min.jpg");
+export const sandyImg = require("../imgs/sandyjpg-min.jpg");

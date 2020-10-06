@@ -1,9 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Lobster+Two&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 
 .logoFont {
   font-family: "Lobster Two", cursive;
 }
-
+.contentFont {
+  font-family: "Lato", sans-serif;
+}
+.lgFont {
+  font-size: 7rem;
+}
 .index-img {
   clip-path: polygon(100% 0%, 45% 0, 0 100%, 100% 100%);
 }
@@ -52,13 +58,17 @@
 .overlay {
   background: rgba(0, 0, 0, 0.3);
 }
-
+@media (max-width: 1500px) {
+  .lgFont {
+    font-size: 5rem;
+  }
+}
 @media (max-width: 1280px) {
   .customContainer {
     width: 100%;
     padding: 0 5rem;
   }
-  html {
+  .main {
     font-size: 10px;
   }
 }

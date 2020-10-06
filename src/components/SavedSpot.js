@@ -1,14 +1,19 @@
 import React from "react";
-import PihaImg from "../imgs/piha.jpg";
 
 const SavedSpot = ({
   name,
-  size,
+  link,
   id,
   savedSpots,
   setSavedSpots,
   handleClick,
+  rating,
 }) => {
+  let stars = [];
+  for (let i = 0; i < rating; i++) {
+    stars.push(<i className="fa fa-star" key={i}></i>);
+  }
+
   return (
     <li className="pr-10">
       <div className="bg-white w-full  rounded-md shadow-xl mt-12 flex">
@@ -46,16 +51,11 @@ const SavedSpot = ({
             </button>
           </div>
           <div>
+            <h2 className="inline font-bold text-gray-500 ">Spot Rating</h2>
             <div className="flex justify-between text-2xl font-bold mt-2">
-              <span className="text-teal-700 text-lg">
-                <i className="fas fa-star"></i>
-                <i className="fas fa-star"></i>
-                <i className="fas fa-star"></i>
-                <i className="fas fa-star"></i>
-                <i className="far fa-star"></i>
-              </span>
+              <span className="text-teal-700 text-lg">{stars}</span>
               <a
-                href={`https://magicseaweed.com/Mount-Maunganui-Surf-Report/93/`}
+                href={link}
                 className="p-5 text-lg rounded bg-teal-700 text-teal-100 font-semibold shadow-lg hover:bg-teal-600 h-16 row-span-1 justify-self-end overflow-hidden"
                 target="_blank"
                 rel="noopener noreferrer"

@@ -13,9 +13,9 @@ const SpotList = ({ savedSpots, setSavedSpots, handleClick }) => {
               <SavedSpot
                 key={spot.id}
                 id={spot.id}
-                img="#"
+                link={spot.link}
                 name={spot.name}
-                size="10M"
+                rating={spot.rating}
                 handleClick={handleClick}
                 savedSpots={savedSpots}
                 setSavedSpots={setSavedSpots}
