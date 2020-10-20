@@ -118,9 +118,9 @@ const Main = () => {
     <SpotContext.Provider
       value={{ selectedSpotObj, setSelectedSpotObj, selectedImage }}
     >
-      <div className="bg-gray-100  grid-cols-5 grid-rows-5 h-screen grid lg:grid-rows-6 main">
+      <div className="main bg-gray-100  grid-cols-5 grid-rows-5 h-screen grid lg:grid-rows-6 ">
         <div
-          className={`customContainer mx-auto col-span-2 row-span-5 app-spotList  lg:fixed lg:top-0 lg:left-0 lg:z-30 lg:col-span-6 lg:row-span-6 lg:bg-gray-100 lg:${
+          className={`main customContainer mx-auto col-span-2 row-span-5 app-spotList  lg:fixed lg:top-0 lg:left-0 lg:z-30 lg:col-span-6 lg:row-span-6 lg:bg-gray-100 lg:${
             hiddenStyle ? "hidden" : "block"
           }`}
         >

@@ -41,7 +41,7 @@ const SpotInfo = () => {
       <img src={spinner} alt="loading Spinner" />
     </div>
   ) : (
-    <div className="overflow-hidden ">
+    <div className="overflow-hidden main">
       <div className="grid grid-rows-2 grid-cols-2  customContainer ml-20 mt-10 overflow-hidden gap-12 lg:ml-0 sm:block">
         <div className="row-span-1 ">
           <h2 className="inline font-bold text-gray-500 ">Spot Rating</h2>

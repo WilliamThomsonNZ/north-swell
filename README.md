@@ -10,4 +10,4 @@ The motivation for creating this app was to have quick access to the forecast of
 
 # Technology Used
 
-North swell is built on React and TailwindCSS. The API used for weather data is Storm Glass.
+North swell is built on React and TailwindCSS. The API used for weather data is Storm Glass. 
